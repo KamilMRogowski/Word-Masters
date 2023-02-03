@@ -119,20 +119,20 @@ function displayProgress() {
     let squareNumber = currentSquare - currentWord.length + i;
     const square = document.querySelector(`.square-${squareNumber}`);
     
+    // First check if letter is in word if not its wrong
     if (todaysWord.includes(currentWord[i])) {
-      // First check if letter is in word
+      // If its in same place its correct
       if (todaysWord[i] === currentWord[i]) {
-        square.classList.add("correct");
-      } else {
-      square.classList.add("wrong");
-      
-      // If there is more letters in current word then in todaysword mark is as wrong
-      if (countCurrentWord[currentWord[i]] > countTodaysWord[currentWord[i]]) {
+        square.classList.add("correct"); 
+        
+        // If there is more letters in current word then in todaysword mark is as wrong if not its semi correct
+      } else if (countCurrentWord[currentWord[i]] > countTodaysWord[currentWord[i]]) {
         square.classList.add("wrong");
       } else {
         square.classList.add("semi-correct");
       }
-    }
+    } else {
+      square.classList.add("wrong");
   }
 }
 }
