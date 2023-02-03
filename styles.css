@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: "Montserrat", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: #888888;
+}
+
+/* Result message with fade-in animation */
+
+.result-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  text-align: center;
+}
+
+.win {
+  color: #006400;
+}
+
+.lose {
+  color: #ff0000be;
+}
+
+.animate {
+  animation: fade-in 0.5s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animated loading icon */
+
+.hidden {
+  visibility: hidden;
+}
+
+.loading-icon {
+  margin: auto;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loading-icon div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #888888;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loading-icon div:nth-child(1) {
+  left: 8px;
+  animation: loading-icon1 0.6s infinite;
+}
+.loading-icon div:nth-child(2) {
+  left: 8px;
+  animation: loading-icon2 0.6s infinite;
+}
+.loading-icon div:nth-child(3) {
+  left: 32px;
+  animation: loading-icon2 0.6s infinite;
+}
+.loading-icon div:nth-child(4) {
+  left: 56px;
+  animation: loading-icon3 0.6s infinite;
+}
+@keyframes loading-icon1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loading-icon3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loading-icon2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/* Main game area */
+
+.game {
+  margin: auto;
+  width: 20vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1rem;
+  grid-template-rows: repeat(6, 1fr);
+  grid-row-gap: 0.7rem;
+  grid-template-areas:
+    "square-0 square-1  square-2  square-3  square-4"  
+    "square-5 square-6  square-7  square-8  square-9"  
+    "square-10 square-11 square-12 square-13 square-14" 
+    "square-15 square-16 square-17 square-18 square-19" 
+    "square-20 square-21 square-22 square-23 square-24" 
+    "square-25 square-26 square-27 square-28 square-29";
+}
+
+@media only screen and (max-width: 768px) {
+  .game {
+    width: 80vw;
+  }
+}
+
+.game div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.2rem solid #aaaaaa;
+  aspect-ratio: 1/1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Classes to add depending on answer */
+
+.correct {
+  background-color: #006400;
+  color: white;
+}
+
+.semi-correct {
+  background-color: #daa520;
+  color: white;
+}
+
+.wrong {
+  background-color: #888888;
+  color: white;
+}
+
+.wrong-word {
+  animation: red-border 0.5s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes red-border {
+  from {
+    border: 0.2rem solid #ff0000be;
+  }
+  to {
+    border: 0.2rem solid #aaaaaa;
+  }
+}
+
+/* Grid template areas */
+
+.square-1 {
+  grid-area: square-1;
+}
+
+.square-2 {
+  grid-area: square-2;
+}
+
+.square-3 {
+  grid-area: square-3;
+}
+
+.square-4 {
+  grid-area: square-4;
+}
+
+.square-5 {
+  grid-area: square-5;
+}
+
+.square-6 {
+  grid-area: square-6;
+}
+
+.square-7 {
+  grid-area: square-7;
+}
+
+.square-8 {
+  grid-area: square-8;
+}
+
+.square-9 {
+  grid-area: square-9;
+}
+
+.square-10 {
+  grid-area: square-10;
+}
+
+.square-11 {
+  grid-area: square-11;
+}
+
+.square-12 {
+  grid-area: square-12;
+}
+
+.square-13 {
+  grid-area: square-13;
+}
+
+.square-14 {
+  grid-area: square-14;
+}
+
+.square-15 {
+  grid-area: square-15;
+}
+
+.square-16 {
+  grid-area: square-16;
+}
+
+.square-17 {
+  grid-area: square-17;
+}
+
+.square-18 {
+  grid-area: square-18;
+}
+
+.square-19 {
+  grid-area: square-19;
+}
+
+.square-20 {
+  grid-area: square-20;
+}
+
+.square-21 {
+  grid-area: square-21;
+}
+
+.square-22 {
+  grid-area: square-22;
+}
+
+.square-23 {
+  grid-area: square-23;
+}
+
+.square-24 {
+  grid-area: square-24;
+}
+
+.square-25 {
+  grid-area: square-25;
+}
+
+.square-26 {
+  grid-area: square-26;
+}
+
+.square-27 {
+  grid-area: square-27;
+}
+
+.square-28 {
+  grid-area: square-28;
+}
+
+.square-29 {
+  grid-area: square-29;
+}
+
+.square-30 {
+  grid-area: square-30;
+}
